@@ -2,8 +2,38 @@
 
 Anomaattori Salausohjelma
 
-Sovelluksen käyttäjä pystyy salaamaan ohjelmalla haluamansa tiedoston. Tällä hetkellä käyttäjä ei vielä pysty lisäämään omaa salasanaa ohjelmalle, vaan
-ohjelman key_manager.py genereroi tiedostolle salausavaimen käyttäen cryptographic kirjaston Fernet luokkaa. Myöhemmässä vaiheessa salaus toteutetaan niin, että käyttäjä antaa itse salasanan salaamalleentiedostolle. Salauksen tason tarkoitus on olla silloin niin korkea, että vaikka hyökkääjä pääsisi tutkimaan ohjelman koodia niin tiedostoa ei pystyisi avaamaan ilman tätä salasanaa.
+Sovelluksen käyttäjä pystyy salaamaan ohjelmalla haluamansa tiedostot erittäin turvallisesti. Ohjelma käyttää moderneimpia kryptograafisia menetelmiä, eikä ohjelman  salausta pysty oikein käytettynä murtamaan.
+
+
+## Tietoturvahuomio käyttäjälle
+
+Tämä ohjelma ei tallenna salausavainta minnekään, vaan avain johdetaan aina sinun antamastasi salasanasta.
+Jos unohdat salasanan, kukaan ei pysty avamaan salattuja tiedostoja - ei edes ohjelman tekijä.
+
+
+**Millainen salasanan pitää olla?**
+
+Jotta tiedostosi olisivat turvassa myös valtiollisia toimijoita ja supertietokoneita vastaan:
+
+- Salasanan pituus vähintään **25 merkkiä**
+- Käytä **isoja ja pieniä kirjaimia, numeroita ja erikoismerkkejä**
+- Älä käytä sanoja, nimiä, päivämääriä tai muuta helposti arvattavaa
+
+### Käytetty salaus
+
+- Avain johdetaan salasanasta funktiolla **PBKDF2-HMAC-SHA256**
+- Suola tallennetaan tiedostoon `salt.bin`
+- Tiedostot salataan Pythonin **cryptography**-kirjaston **Fernet**-salausta käyttäen
+- Sisäisesti tämä käyttää **AES-128-CBC** -salausta sekä **HMAC-SHA256** -allekirjoitusta eheyden tarkistamiseen
+
+**Miksi tämä on turvallista?**
+
+- 25 satunnaisesta merkistä koostuvassa salasanassa on valtava määrä mahdollisia yhdistelmiä.
+- Ainoa realistinen hyökkäys on arvata salasanaa brute forcella.
+- Ohjelma käyttää PBKDF2-algoritmia, joka hidastaa jokaista arvausta erikseen, joten kaikkien vaihtoehtojen läpikäynti on käytännössä mahdotonta, vaikka hyökkääjällä olisi erittäin tehokas supertietokoneklusteri.
+
+
+Mikäli hyökkääjä ei ole asentanut tietokoneellesi keyloggeria eikä salasana ole helposti arvattava, tämä kryptaus on murtamaton.
 
 - [Käyttöohje](dokumentaatio/kayttoohje.md)
 - [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
@@ -67,3 +97,4 @@ Tiedoston [.pylintrc](./.pylintrc) määrittelemät tarkistukset voi suorittaa k
 ```bash
 poetry run invoke lint
 ```
+

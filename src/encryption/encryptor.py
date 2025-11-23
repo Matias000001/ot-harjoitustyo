@@ -1,11 +1,11 @@
 from cryptography.fernet import Fernet
 
+
 class Encryptor:
-    def __init__(self, key):
+    def __init__(self, key: bytes):
         self.fernet = Fernet(key)
 
-    def encrypt_file(self, input_path, output_path):
-        
+    def encrypt_file(self, input_path: str, output_path: str) -> bool:
         try:
             with open(input_path, "rb") as infile:
                 data = infile.read()
@@ -15,24 +15,14 @@ class Encryptor:
         except PermissionError:
             print("Virhe: ei oikeuksia lukea salattavaa tiedostoa.")
             return False
-        except Exception:
-            print("Virhe: tapahtui odottamaton virhe tiedostoa luettaessa.")
-            return False
 
-        try:
-            encrypted = self.fernet.encrypt(data)
-        except Exception:
-            print("Virhe: salaus epäonnistui.")
-            return False
-        
+        encrypted = self.fernet.encrypt(data)
+
         try:
             with open(output_path, "wb") as outfile:
                 outfile.write(encrypted)
         except PermissionError:
             print("Virhe: ei oikeuksia kirjoittaa ulostulotiedostoa.")
             return False
-        except Exception:
-            print("Virhe: tiedoston tallentamisessa tapahtui virhe.")
-            return False
 
-        print("Tiedosto salattu onnistuneesti.")
+        return True

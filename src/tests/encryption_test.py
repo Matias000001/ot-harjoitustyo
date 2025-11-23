@@ -3,6 +3,7 @@ from encryption.key_manager import KeyManager
 from encryption.encryptor import Encryptor
 from encryption.decryptor import Decryptor
 
+
 class TestEncryption(unittest.TestCase):
     def test_encrypt_and_decrypt(self):
         km = KeyManager("test_key.key")

@@ -8,3 +8,4 @@
 | 13.11 | 7 | hakemistorakenne, cli, backend |
 | 14.11 | 6 | yksikkötestin rakennus |
 | 17.11 | 4 | dokumentaatio, README päivitys | 
+| 23.11 | 8 | ohjelman päivitys; salasana suojaus, Ohjeet valinta jolle oma tiedosto, README päivitys, pylint 10/10 |

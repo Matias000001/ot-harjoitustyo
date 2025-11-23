@@ -1,11 +1,12 @@
+# pylint: disable=duplicate-code
 from cryptography.fernet import Fernet, InvalidToken
 
+
 class Decryptor:
-    def __init__(self, key):
+    def __init__(self, key: bytes):
         self.fernet = Fernet(key)
 
-    def decrypt_file(self, input_path, output_path):
-        
+    def decrypt_file(self, input_path: str, output_path: str) -> bool:
         try:
             with open(input_path, "rb") as infile:
                 data = infile.read()
@@ -21,9 +22,6 @@ class Decryptor:
         except InvalidToken:
             print("Virhe: väärä avain tai tiedosto ei ole salattu tällä ohjelmalla.")
             return False
-        except Exception:
-            print("Virhe: tiedoston purussa tapahtui odottamaton virhe.")
-            return False
 
         try:
             with open(output_path, "wb") as outfile:
@@ -31,8 +29,5 @@ class Decryptor:
         except PermissionError:
             print("Virhe: ei oikeuksia kirjoittaa tiedostoa.")
             return False
-        except Exception:
-            print("Virhe: tiedoston tallentamisessa tapahtui virhe.")
-            return False
 
-        print("Tiedosto purettu onnistuneesti.")
+        return True

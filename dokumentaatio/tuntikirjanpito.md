@@ -1,5 +1,7 @@
 # Työaikakirjanpito
 
+Käytettyjen tuntien summa: 34
+
 | päivä | aika | mitä tein  |
 | :----:|:-----| :-----|
 | 22.10 | 4 | tutustuminen kurssiin ja materiaaleihin + repo labtooliin |
@@ -8,4 +10,4 @@
 | 13.11 | 7 | hakemistorakenne, cli, backend |
 | 14.11 | 6 | yksikkötestin rakennus |
 | 17.11 | 4 | dokumentaatio, README päivitys | 
-| 23.11 | 8 | ohjelman päivitys; salasana suojaus, Ohjeet valinta jolle oma tiedosto, README päivitys, pylint 10/10 |
+| 23.11 | 8 | ohjelman päivitys; salasana suojaus, Ohjeet valinta jolle oma tiedosto, README päivitys, pylint 10/10, testien päivitys, pakkauskaavio, changelogin päivitys |

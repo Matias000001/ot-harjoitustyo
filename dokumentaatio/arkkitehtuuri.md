@@ -1,1 +1,3 @@
-tulossa
+# Arkkitehtuurikuva
+
+![Arkkitehtuurikaavio](kaavio.png)

@@ -1,6 +1,7 @@
 # src/ui.py
 from tkinter import ttk, filedialog, messagebox, Text
-import io, os
+import io
+import os
 import contextlib
 
 from encryption.key_manager import get_key_from_password
@@ -16,6 +17,8 @@ class UI:
         self.encryptor = None
         self.decryptor = None
         self._current_frame = None
+        self._pw1_var = None
+        self._pw2_var = None
 
     def start(self):
         self._show_password_view()
@@ -83,16 +86,16 @@ class UI:
         ).pack(pady=5)
 
     def encrypt_file(self):
-        input = filedialog.askopenfilename(title="Select file to encrypt")
-        if not input:
+        inp = filedialog.askopenfilename(title="Select file to encrypt")
+        if not inp:
             return
-        output = filedialog.asksaveasfilename(title="Enter output file")
-        if not output:
+        out = filedialog.asksaveasfilename(title="Enter output file")
+        if not out:
             return
-        ok = self.encryptor.encrypt_file(input, output)
+        ok = self.encryptor.encrypt_file(inp, out)
         if ok:
             try:
-                os.remove(input)
+                os.remove(inp)
                 messagebox.showinfo(
                     "Result",
                     "File encrypted.\nOriginal (unencrypted) file deleted."
@@ -106,16 +109,16 @@ class UI:
             messagebox.showerror("Error", "Encryption failed.")
 
     def decrypt_file(self):
-        input = filedialog.askopenfilename(title="Select file to decrypt")
-        if not input:
+        inp = filedialog.askopenfilename(title="Select file to decrypt")
+        if not inp:
             return
-        output = filedialog.asksaveasfilename(title="Enter output file")
-        if not output:
+        out = filedialog.asksaveasfilename(title="Enter output file")
+        if not out:
             return
-        ok = self.decryptor.decrypt_file(input, output)
+        ok = self.decryptor.decrypt_file(inp, out)
         if ok:
             try:
-                os.remove(input)
+                os.remove(inp)
                 messagebox.showinfo(
                     "Result",
                     "File decrypted.\nEncrypted file deleted."

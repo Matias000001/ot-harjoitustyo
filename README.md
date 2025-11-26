@@ -1,6 +1,6 @@
 # Ohjelmistotekniikka, harjoitustyö
 
-Anomaattori Salausohjelma
+CipherVault Salausohjelma
 
 Sovelluksen käyttäjä pystyy salaamaan ohjelmalla haluamansa tiedostot erittäin turvallisesti. Ohjelma käyttää moderneimpia kryptograafisia menetelmiä, eikä ohjelman  salausta pysty oikein käytettynä murtamaan.
 
@@ -31,9 +31,7 @@ Jotta tiedostosi olisivat turvassa myös valtiollisia toimijoita ja supertietoko
 - 25 satunnaisesta merkistä koostuvassa salasanassa on valtava määrä mahdollisia yhdistelmiä.
 - Ainoa realistinen hyökkäys on arvata salasanaa brute forcella.
 - Ohjelma käyttää PBKDF2-algoritmia, joka hidastaa jokaista arvausta erikseen, joten kaikkien vaihtoehtojen läpikäynti on käytännössä mahdotonta, vaikka hyökkääjällä olisi erittäin tehokas supertietokoneklusteri.
-
-
-Mikäli hyökkääjä ei ole asentanut tietokoneellesi keyloggeria eikä salasana ole helposti arvattava, tämä kryptaus on murtamaton.
+- Mikäli hyökkääjä ei ole asentanut tietokoneellesi keyloggeria eikä salasana ole helposti arvattava, tämä kryptaus on murtamaton.
 
 - [Käyttöohje](dokumentaatio/kayttoohje.md)
 - [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
@@ -41,6 +39,7 @@ Mikäli hyökkääjä ei ole asentanut tietokoneellesi keyloggeria eikä salasan
 - [Testausdokumentti](dokumentaatio/testaus.md)
 - [Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
 - [Changelog](dokumentaatio/changelog.md)
+
 
   ## Asennus (kopioitu referenssisovelluksesta)
 
@@ -56,10 +55,16 @@ poetry install
 poetry run invoke build
 ```
 
-3. Käynnistä sovellus komennolla:
+3. Käynnistä sovelluksen komentorivi versio komennolla:
 
 ```bash
 poetry run invoke start
+```
+
+4. Käynnistä sovelluksen graafinen versio komennolla:
+
+```bash
+poetry run invoke gui
 ```
 
 ## Komentorivitoiminnot

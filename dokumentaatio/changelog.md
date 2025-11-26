@@ -18,3 +18,8 @@ riippuvuudet
 - Uudistettiin komentorivikäyttöliittymä: salasana kysytään kahdesti ohjelman alussa, lisättiin ohjevalikko sekä automaattinen alkuperäisen/salatun tiedoston poisto salauksen tai purun onnistuessa.
 - Lisättiin `introduction.py`-moduuli ja tietoturvaa kuvaava osuus README:hen sekä arkkitehtuurikaavio (`arkkitehtuuri.md` + upotettu PNG).
 - Päivitettiin yksikkötestit käyttämään uutta avainlogiikkaa ja encryptor/decryptor-luokkia sekä lisättiin `lint` Invoke-tehtävä pylint tarkistusten ajamiseen.
+
+# Viikko 5
+
+- GUI
+- Sovelluksen kaikki tekstit englanniksi

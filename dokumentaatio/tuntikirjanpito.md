@@ -1,6 +1,6 @@
 # Työaikakirjanpito
 
-Käytettyjen tuntien summa: 34
+Käytettyjen tuntien summa: 44
 
 | päivä | aika | mitä tein  |
 | :----:|:-----| :-----|
@@ -11,3 +11,4 @@ Käytettyjen tuntien summa: 34
 | 14.11 | 6 | yksikkötestin rakennus |
 | 17.11 | 4 | dokumentaatio, README päivitys | 
 | 23.11 | 8 | ohjelman päivitys; salasana suojaus, Ohjeet valinta jolle oma tiedosto, README päivitys, pylint 10/10, testien päivitys, pakkauskaavio, changelogin päivitys |
+| 26.11 | 10 | GUI, fin to eng |

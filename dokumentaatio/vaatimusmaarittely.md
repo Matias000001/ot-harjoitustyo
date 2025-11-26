@@ -52,3 +52,4 @@ Näkymään aukeaa valikko, joiden takaa löytyy toiminnallisuudet:
 Perusversion jälkeen järjestelmää voidaan laajentaa esim. seuraavilla ominaisuuksilla:
 - Useiden tiedostojen yhtäaikainen salaus (kansio-käsittely)
 - Tiedostojen tuhoaminen turvallisesti (secure delete)
+- GUI -"tehty"-

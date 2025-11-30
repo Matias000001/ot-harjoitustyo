@@ -23,6 +23,5 @@ Password choice:
   and that you do not use anywhere else.
 """
 
-
 def print_help():
     print(HELP_TEXT)

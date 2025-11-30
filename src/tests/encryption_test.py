@@ -24,3 +24,7 @@ class TestEncryption(unittest.TestCase):
         encrypted = self.encryptor.fernet.encrypt(original_data)
         decrypted = self.decryptor.fernet.decrypt(encrypted)
         self.assertEqual(decrypted, original_data)
+
+    def test_decrypt_file_missing_input_returns_false(self):
+        ok = self.decryptor.decrypt_file("tama_on_testi_data_file.enc", "tama_on_toinen_testi_data_file.txt")
+        self.assertFalse(ok)

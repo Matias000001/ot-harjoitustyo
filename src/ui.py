@@ -11,7 +11,7 @@ from introduction import print_help
 
 # Parts of this code were inspired by AI
 
-class UI:
+class UI: # pylint: disable=too-many-instance-attributes
     def __init__(self, root):
         self.root = root
         self.encryptor = None
@@ -19,6 +19,12 @@ class UI:
         self._current_frame = None
         self._pw1_var = None
         self._pw2_var = None
+        self._continue_button = None
+        self._encrypt_button = None
+        self._decrypt_button = None
+        self._help_button = None
+        self._quit_button = None
+        self._back_button = None
 
     def start(self):
         self._show_password_view()
@@ -176,4 +182,3 @@ class UI:
         self._back_button.pack(pady=5)
         self._back_button.bind("<Return>", lambda e: self._show_main_view())
         self._back_button.focus_set()
-

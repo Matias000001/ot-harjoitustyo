@@ -1,4 +1,3 @@
-# src/gui_main.py
 from tkinter import Tk
 from ui import UI
 

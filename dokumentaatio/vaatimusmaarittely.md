@@ -13,14 +13,14 @@ Jos salasana unohtuu, tiedostoja ei voi enää palauttaa. -"tehty"-
 
 ## Käyttöliittymäluonnos
 
-Sovellus toimii aluksi teksikäyttöliittymänä (CLI) -"tehty"- ja myöhemmin toteutetaan graafinen käyttöliittymä (GUI). -TEKEMÄTTÄ-
+Sovellus toimii aluksi teksikäyttöliittymänä (CLI) -"tehty"- ja myöhemmin toteutetaan graafinen käyttöliittymä (GUI). -tehty-
 
-Näkymään aukeaa valikko, joiden takaa löytyy toiminnallisuudet:
+Näkymään aukeaa valikko, joiden takaa löytyy salasanan asettamisen jälkeen toiminnallisuudet:
 
-1. Salaa tiedosto
-2. Pura tiedosto
-3. Ohjeet
-4. Lopeta
+1. Encrypt file
+2. Decrypt file
+3. Help
+4. Quit
 
 ## Ohjelman tarjoamat toiminnallisuudet
 
@@ -29,8 +29,6 @@ Näkymään aukeaa valikko, joiden takaa löytyy toiminnallisuudet:
 - Käyttäjä näkee valikon (Salaa tiedosto / Pura tiedosto / Ohjeet / Lopeta). -"tehty"-
 
 ### Kryptaus
-- Käyttäjä antaa:
-- Tiedoston absoluuttisen polun (esim. /home/kayttaja/private/kuvat/example.jpg) -TEKEMÄTTÄ-
 - Ohjelma:
 - Lukee tiedoston binäärimuodossa -"tehty"-
 - Johdattaa salasanasta salausavaimen -"tehty"-
@@ -40,7 +38,6 @@ Näkymään aukeaa valikko, joiden takaa löytyy toiminnallisuudet:
 - Onnistuessaan poistaa salaamattoman tiedoston. -"tehty"-
 
 ### Dekryptaus
-- Salatun tiedoston absoluuttisen polun (esim. /home/kayttaja/private/kuvat/example.enc)
 - Lukee tiedoston -"tehty"-
 - Johdattaa avaimen annetusta salasanasta -"tehty"-
 - Purkaa sisällön -"tehty"-
@@ -52,4 +49,5 @@ Näkymään aukeaa valikko, joiden takaa löytyy toiminnallisuudet:
 Perusversion jälkeen järjestelmää voidaan laajentaa esim. seuraavilla ominaisuuksilla:
 - Useiden tiedostojen yhtäaikainen salaus (kansio-käsittely)
 - Tiedostojen tuhoaminen turvallisesti (secure delete)
-- GUI -"tehty"-
+- GUI -tehty-
+- Sovelluksessa liikkuminen Tab ja Enter nappien avulla -Tehty-

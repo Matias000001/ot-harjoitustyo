@@ -41,11 +41,17 @@ class UI:
         self._pw1_var.grid(row=1, column=1, pady=2, sticky="we")
         self._pw2_var.grid(row=2, column=1, pady=2, sticky="we")
         self._current_frame.columnconfigure(1, weight=1)
-        ttk.Button(
+        self._continue_button = ttk.Button(
             self._current_frame,
             text="Continue",
             command=self._handle_password_ok,
-        ).grid(row=3, column=0, columnspan=2, pady=10)
+            takefocus=True,
+        )
+        self._continue_button.grid(row=3, column=0, columnspan=2, pady=10)
+        self._continue_button.bind("<Return>", lambda event: self._handle_password_ok())
+        self._pw1_var.focus_set()
+
+
 
     def _handle_password_ok(self):
         pw1 = self._pw1_var.get()
@@ -64,26 +70,45 @@ class UI:
     def _show_main_view(self):
         self._clear_frame()
         ttk.Label(self._current_frame, text="CipherVault").pack(pady=10)
-        ttk.Button(
+
+        self._encrypt_button = ttk.Button(
             self._current_frame,
             text="Encrypt file",
             command=self.encrypt_file,
-        ).pack(pady=5)
-        ttk.Button(
+            takefocus=True,
+        )
+        self._encrypt_button.pack(pady=5)
+        self._encrypt_button.bind("<Return>", lambda e: self.encrypt_file())
+
+        self._decrypt_button = ttk.Button(
             self._current_frame,
             text="Decrypt file",
             command=self.decrypt_file,
-        ).pack(pady=5)
-        ttk.Button(
+            takefocus=True,
+        )
+        self._decrypt_button.pack(pady=5)
+        self._decrypt_button.bind("<Return>", lambda e: self.decrypt_file())
+
+        self._help_button = ttk.Button(
             self._current_frame,
             text="Help",
             command=self.show_help,
-        ).pack(pady=5)
-        ttk.Button(
+            takefocus=True,
+        )
+        self._help_button.pack(pady=5)
+        self._help_button.bind("<Return>", lambda e: self.show_help())
+
+        self._quit_button = ttk.Button(
             self._current_frame,
             text="Quit",
             command=self.root.quit,
-        ).pack(pady=5)
+            takefocus=True,
+        )
+        self._quit_button.pack(pady=5)
+        self._quit_button.bind("<Return>", lambda e: self.root.quit())
+
+        self._encrypt_button.focus_set()
+
 
     def encrypt_file(self):
         inp = filedialog.askopenfilename(title="Select file to encrypt")
@@ -130,6 +155,7 @@ class UI:
                 )
         else:
             messagebox.showerror("Error", "Decryption failed.")
+
     def show_help(self):
         buf = io.StringIO()
         with contextlib.redirect_stdout(buf):
@@ -141,8 +167,13 @@ class UI:
         text_widget.insert("1.0", help_text)
         text_widget.config(state="disabled")
         text_widget.pack(fill="both", expand=True)
-        ttk.Button(
+        self._back_button = ttk.Button(
             self._current_frame,
             text="Back",
             command=self._show_main_view,
-        ).pack(pady=5)
+            takefocus=True,
+        )
+        self._back_button.pack(pady=5)
+        self._back_button.bind("<Return>", lambda e: self._show_main_view())
+        self._back_button.focus_set()
+

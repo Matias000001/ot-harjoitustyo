@@ -1,6 +1,6 @@
 # Ohjelmistotekniikka, harjoitustyö
 
-## CipherVault - salausohjelma
+## Cipher Vault - salausohjelma
 
 Sovelluksen käyttäjä pystyy salaamaan ohjelmalla haluamansa tiedostot erittäin turvallisesti. Ohjelma käyttää moderneimpia kryptograafisia menetelmiä, eikä ohjelman  salausta pysty oikein käytettynä murtamaan.
 
@@ -11,7 +11,7 @@ Tämä ohjelma ei tallenna salausavainta minnekään, vaan avain johdetaan aina 
 Jos unohdat salasanan, kukaan ei pysty avamaan salattuja tiedostoja - ei edes ohjelman tekijä.
 
 
-### Millainen salasanan pitää olla?**
+### Millainen salasanan pitää olla?
 
 Jotta tiedostosi olisivat turvassa myös valtiollisia toimijoita ja supertietokoneita vastaan:
 
@@ -39,6 +39,7 @@ Jotta tiedostosi olisivat turvassa myös valtiollisia toimijoita ja supertietoko
 - [Testausdokumentti](dokumentaatio/testaus.md)
 - [Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
 - [Changelog](dokumentaatio/changelog.md)
+- [GitHub Release] (https://github.com/Matias000001/ot-harjoitustyo/releases/tag/viikko5)
 
 
 ## Asennus ja ajaminen

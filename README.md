@@ -39,7 +39,7 @@ Jotta tiedostosi olisivat turvassa myös valtiollisia toimijoita ja supertietoko
 - [Testausdokumentti](dokumentaatio/testaus.md)
 - [Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
 - [Changelog](dokumentaatio/changelog.md)
-- [GitHub Release] (https://github.com/Matias000001/ot-harjoitustyo/releases/tag/viikko5)
+- [GitHub Release](https://github.com/Matias000001/ot-harjoitustyo/releases/tag/viikko5)
 
 
 ## Asennus ja ajaminen

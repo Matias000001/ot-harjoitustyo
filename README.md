@@ -44,33 +44,18 @@ Jotta tiedostosi olisivat turvassa myös valtiollisia toimijoita ja supertietoko
 
 ## Asennus ja ajaminen
 
-1. Asenna riippuvuudet komennolla:
-
-```bash
+bash
 poetry install
 ```
 
-2. Käynnistä sovelluksen komentorivi versio komennolla:
+Käynnistä sovelluksen komentorivi versio komennolla:
 
 ```bash
 poetry run invoke start
 ```
 
-3. Käynnistä sovelluksen graafinen versio komennolla:
+Käynnistä sovelluksen graafinen versio komennolla:
 
-```bash
-poetry run invoke gui
-```
-
-## Komentorivitoiminnot
-
-### Ohjelman suorittaminen
-
-Ohjelman pystyy suorittamaan komennolla:
-
-```bash
-poetry run invoke start
-```
 ```bash
 poetry run invoke gui
 ```
@@ -100,4 +85,3 @@ Tiedoston [.pylintrc](./.pylintrc) määrittelemät tarkistukset voi suorittaa k
 ```bash
 poetry run invoke lint
 ```
-

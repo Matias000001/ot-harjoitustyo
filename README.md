@@ -1,6 +1,6 @@
 # Ohjelmistotekniikka, harjoitustyö
 
-CipherVault Salausohjelma
+## CipherVault - salausohjelma
 
 Sovelluksen käyttäjä pystyy salaamaan ohjelmalla haluamansa tiedostot erittäin turvallisesti. Ohjelma käyttää moderneimpia kryptograafisia menetelmiä, eikä ohjelman  salausta pysty oikein käytettynä murtamaan.
 
@@ -11,7 +11,7 @@ Tämä ohjelma ei tallenna salausavainta minnekään, vaan avain johdetaan aina 
 Jos unohdat salasanan, kukaan ei pysty avamaan salattuja tiedostoja - ei edes ohjelman tekijä.
 
 
-**Millainen salasanan pitää olla?**
+### Millainen salasanan pitää olla?**
 
 Jotta tiedostosi olisivat turvassa myös valtiollisia toimijoita ja supertietokoneita vastaan:
 
@@ -41,7 +41,7 @@ Jotta tiedostosi olisivat turvassa myös valtiollisia toimijoita ja supertietoko
 - [Changelog](dokumentaatio/changelog.md)
 
 
-  ## Asennus (kopioitu referenssisovelluksesta)
+## Asennus ja ajaminen
 
 1. Asenna riippuvuudet komennolla:
 
@@ -49,19 +49,13 @@ Jotta tiedostosi olisivat turvassa myös valtiollisia toimijoita ja supertietoko
 poetry install
 ```
 
-2. Suorita vaadittavat alustustoimenpiteet komennolla:
-
-```bash
-poetry run invoke build
-```
-
-3. Käynnistä sovelluksen komentorivi versio komennolla:
+2. Käynnistä sovelluksen komentorivi versio komennolla:
 
 ```bash
 poetry run invoke start
 ```
 
-4. Käynnistä sovelluksen graafinen versio komennolla:
+3. Käynnistä sovelluksen graafinen versio komennolla:
 
 ```bash
 poetry run invoke gui
@@ -75,6 +69,9 @@ Ohjelman pystyy suorittamaan komennolla:
 
 ```bash
 poetry run invoke start
+```
+```bash
+poetry run invoke gui
 ```
 
 ### Testaus

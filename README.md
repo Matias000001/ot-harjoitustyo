@@ -44,7 +44,7 @@ Jotta tiedostosi olisivat turvassa myös valtiollisia toimijoita ja supertietoko
 
 ## Asennus ja ajaminen
 
-bash
+``bash
 poetry install
 ```
 

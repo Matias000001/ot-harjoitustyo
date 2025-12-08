@@ -5,6 +5,7 @@ from introduction import print_help
 from controllers.password_controller import PasswordController
 from controllers.file_controller import FileController
 
+# inspired by AI
 
 class UI:
     def __init__(self, root):

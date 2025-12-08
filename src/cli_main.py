@@ -9,25 +9,42 @@ file_controller = FileController()
 
 
 def print_menu():
+    """Print the CLI menu."""
     print("\n--- CipherVault ---")
     print("1) Encrypt file")
     print("2) Extract file")
     print("3) Help")
     print("4) Quit")
 
-def handle_encrypt(encryptor: Encryptor) -> None:
+def handle_encrypt(encryptor: Encryptor):
+    """Encrypt a file via CLI using the given encryptor.
+
+    Args:
+        encryptor (Encryptor): Engine used to encrypt the file.
+    """
+
     inp = input("Enter the file to encrypt: ").strip()
     out = input("Enter the output file: ").strip()
     _, msg = file_controller.encrypt(encryptor, inp, out)
     print(msg)
 
-def handle_decrypt(decryptor: Decryptor) -> None:
+def handle_decrypt(decryptor: Decryptor):
+    """Decrypt a file using the CLI interface.
+
+    Args:
+        decryptor (Decryptor): Engine used to decrypt the file.
+    """
     inp = input("Enter the file to extract: ").strip()
     out = input("Enter the output file: ").strip()
     _, msg = file_controller.decrypt(decryptor, inp, out)
     print(msg)
 
-def ask_password_twice() -> str:
+def ask_password_twice():
+    """Ask the user for a password twice and return it.
+
+    Returns:
+        str: The confirmed password entered by the user.
+    """
     while True:
         pw1 = getpass("Password: ")
         pw2 = getpass("Repeat password: ")
@@ -40,6 +57,7 @@ def ask_password_twice() -> str:
         return pw1
 
 def main():
+    """Run the CipherVault CLI application."""
     password = ask_password_twice()
     key = get_key_from_password(password)
     encryptor = Encryptor(key)

@@ -10,19 +10,16 @@ class Encryptor:
             with open(input_path, "rb") as infile:
                 data = infile.read()
         except FileNotFoundError:
-            print("Virhe: salattavaa tiedostoa ei löytynyt.")
+            print("Error: No file to encrypt was found.")
             return False
         except PermissionError:
-            print("Virhe: ei oikeuksia lukea salattavaa tiedostoa.")
+            print("Error: No permissions to read the file to be encrypted.")
             return False
-
         encrypted = self.fernet.encrypt(data)
-
         try:
             with open(output_path, "wb") as outfile:
                 outfile.write(encrypted)
         except PermissionError:
-            print("Virhe: ei oikeuksia kirjoittaa ulostulotiedostoa.")
+            print("Error: no permissions to write output file.")
             return False
-
         return True

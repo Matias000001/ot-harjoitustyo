@@ -1,30 +1,21 @@
-# src/ui.py
 from tkinter import ttk, filedialog, messagebox, Text
 import io
-import os
 import contextlib
-
-from encryption.key_manager import get_key_from_password
-from encryption.encryptor import Encryptor
-from encryption.decryptor import Decryptor
 from introduction import print_help
+from controllers.password_controller import PasswordController
+from controllers.file_controller import FileController
 
-# Parts of this code were inspired by AI
 
-class UI: # pylint: disable=too-many-instance-attributes
+class UI:
     def __init__(self, root):
         self.root = root
         self.encryptor = None
         self.decryptor = None
+        self.password_controller = PasswordController()
+        self.file_controller = FileController()
         self._current_frame = None
         self._pw1_var = None
         self._pw2_var = None
-        self._continue_button = None
-        self._encrypt_button = None
-        self._decrypt_button = None
-        self._help_button = None
-        self._quit_button = None
-        self._back_button = None
 
     def start(self):
         self._show_password_view()
@@ -47,74 +38,63 @@ class UI: # pylint: disable=too-many-instance-attributes
         self._pw1_var.grid(row=1, column=1, pady=2, sticky="we")
         self._pw2_var.grid(row=2, column=1, pady=2, sticky="we")
         self._current_frame.columnconfigure(1, weight=1)
-        self._continue_button = ttk.Button(
+        continue_button = ttk.Button(
             self._current_frame,
             text="Continue",
             command=self._handle_password_ok,
             takefocus=True,
         )
-        self._continue_button.grid(row=3, column=0, columnspan=2, pady=10)
-        self._continue_button.bind("<Return>", lambda event: self._handle_password_ok())
+        continue_button.grid(row=3, column=0, columnspan=2, pady=10)
+        continue_button.bind("<Return>", lambda event: self._handle_password_ok())
         self._pw1_var.focus_set()
-
-
 
     def _handle_password_ok(self):
         pw1 = self._pw1_var.get()
         pw2 = self._pw2_var.get()
-        if not pw1:
-            messagebox.showerror("Error", "Password cannot be empty.")
+        encryptor, decryptor, error = self.password_controller.validate_and_create_engines(pw1, pw2)
+        if error:
+            messagebox.showerror("Error", error)
             return
-        if pw1 != pw2:
-            messagebox.showerror("Error", "Passwords do not match.")
-            return
-        key = get_key_from_password(pw1)
-        self.encryptor = Encryptor(key)
-        self.decryptor = Decryptor(key)
+        self.encryptor = encryptor
+        self.decryptor = decryptor
         self._show_main_view()
 
     def _show_main_view(self):
         self._clear_frame()
         ttk.Label(self._current_frame, text="CipherVault").pack(pady=10)
-
-        self._encrypt_button = ttk.Button(
+        encrypt_button = ttk.Button(
             self._current_frame,
             text="Encrypt file",
             command=self.encrypt_file,
             takefocus=True,
         )
-        self._encrypt_button.pack(pady=5)
-        self._encrypt_button.bind("<Return>", lambda e: self.encrypt_file())
-
-        self._decrypt_button = ttk.Button(
+        encrypt_button.pack(pady=5)
+        encrypt_button.bind("<Return>", lambda e: self.encrypt_file())
+        decrypt_button = ttk.Button(
             self._current_frame,
             text="Decrypt file",
             command=self.decrypt_file,
             takefocus=True,
         )
-        self._decrypt_button.pack(pady=5)
-        self._decrypt_button.bind("<Return>", lambda e: self.decrypt_file())
-
-        self._help_button = ttk.Button(
+        decrypt_button.pack(pady=5)
+        decrypt_button.bind("<Return>", lambda e: self.decrypt_file())
+        help_button = ttk.Button(
             self._current_frame,
             text="Help",
             command=self.show_help,
             takefocus=True,
         )
-        self._help_button.pack(pady=5)
-        self._help_button.bind("<Return>", lambda e: self.show_help())
-
-        self._quit_button = ttk.Button(
+        help_button.pack(pady=5)
+        help_button.bind("<Return>", lambda e: self.show_help())
+        quit_button = ttk.Button(
             self._current_frame,
             text="Quit",
             command=self.root.quit,
             takefocus=True,
         )
-        self._quit_button.pack(pady=5)
-        self._quit_button.bind("<Return>", lambda e: self.root.quit())
-
-        self._encrypt_button.focus_set()
-
+        quit_button.pack(pady=5)
+        quit_button.bind("<Return>", lambda e: self.root.quit())
+        encrypt_button.focus_set()
 
     def encrypt_file(self):
         inp = filedialog.askopenfilename(title="Select file to encrypt")
@@ -123,21 +103,11 @@ class UI: # pylint: disable=too-many-instance-attributes
         out = filedialog.asksaveasfilename(title="Enter output file")
         if not out:
             return
-        ok = self.encryptor.encrypt_file(inp, out)
-        if ok:
-            try:
-                os.remove(inp)
-                messagebox.showinfo(
-                    "Result",
-                    "File encrypted.\nOriginal (unencrypted) file deleted."
-                )
-            except OSError:
-                messagebox.showwarning(
-                    "Result",
-                    "File encrypted.\nWarning: failed to delete original file."
-                )
+        success, msg = self.file_controller.encrypt(self.encryptor, inp, out)
+        if success:
+            messagebox.showinfo("Result", msg)
         else:
-            messagebox.showerror("Error", "Encryption failed.")
+            messagebox.showerror("Error", msg)
 
     def decrypt_file(self):
         inp = filedialog.askopenfilename(title="Select file to decrypt")
@@ -146,21 +116,11 @@ class UI: # pylint: disable=too-many-instance-attributes
         out = filedialog.asksaveasfilename(title="Enter output file")
         if not out:
             return
-        ok = self.decryptor.decrypt_file(inp, out)
-        if ok:
-            try:
-                os.remove(inp)
-                messagebox.showinfo(
-                    "Result",
-                    "File decrypted.\nEncrypted file deleted."
-                )
-            except OSError:
-                messagebox.showwarning(
-                    "Result",
-                    "File decrypted.\nWarning: failed to delete encrypted file."
-                )
+        success, msg = self.file_controller.decrypt(self.decryptor, inp, out)
+        if success:
+            messagebox.showinfo("Result", msg)
         else:
-            messagebox.showerror("Error", "Decryption failed.")
+            messagebox.showerror("Error", msg)
 
     def show_help(self):
         buf = io.StringIO()
@@ -173,12 +133,12 @@ class UI: # pylint: disable=too-many-instance-attributes
         text_widget.insert("1.0", help_text)
         text_widget.config(state="disabled")
         text_widget.pack(fill="both", expand=True)
-        self._back_button = ttk.Button(
+        back_button = ttk.Button(
             self._current_frame,
             text="Back",
             command=self._show_main_view,
             takefocus=True,
         )
-        self._back_button.pack(pady=5)
-        self._back_button.bind("<Return>", lambda e: self._show_main_view())
-        self._back_button.focus_set()
+        back_button.pack(pady=5)
+        back_button.bind("<Return>", lambda e: self._show_main_view())
+        back_button.focus_set()

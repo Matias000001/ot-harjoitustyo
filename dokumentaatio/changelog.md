@@ -32,3 +32,7 @@ riippuvuudet
 - Rakennettu ensimmäinen itsenäinen binääri (CipherVault) PyInstallerilla ja testattu sen käynnistyminen Linux-ympäristössä.
 - Lisätty dokumentaatioon tiedoston salaamista kuvaava sekvenssikaavio ja linkitetty arkkitehtuuri.md README:stä.
 - (Kurssivaatimusten ulkopuolella) kokeiltu sovelluksen jakelua erillisinä ajettavina paketteina PyInstallerilla Linuxille ja Windowsille.
+
+## Viikko 6
+
+- Eriytetty selkeämmin sovelluslogiikkaa ja käyttöliittymälogiikkaa eri moduuleihin.

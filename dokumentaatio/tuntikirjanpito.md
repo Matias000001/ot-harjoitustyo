@@ -1,6 +1,6 @@
 # Työaikakirjanpito
 
-Käytettyjen tuntien summa: 56
+Käytettyjen tuntien summa: 60
 
 | päivä | aika | mitä tein  |
 | :----:|:-----| :-----|
@@ -15,3 +15,4 @@ Käytettyjen tuntien summa: 56
 | 27.11 | 4 | Testing PyInstaler
 | 30.11 | 6 | GUI-näppäinohjauksen parantaminen (Tab/Enter), salaustestien ja kattavuuden (>40 %) laajennus, salt/binäärien ignoret ja PyInstaller-binaari
 | 1.12 | 2 | sekvenssikaavio ja dokumentaation päivitys
+| 8.12 | 4 | sovelluslogiikan eriyttelyä ja käyttöliittymälogiikkaa eri moduuleihin

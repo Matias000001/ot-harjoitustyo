@@ -18,13 +18,13 @@ def print_menu():
 def handle_encrypt(encryptor: Encryptor) -> None:
     inp = input("Enter the file to encrypt: ").strip()
     out = input("Enter the output file: ").strip()
-    success, msg = file_controller.encrypt(encryptor, inp, out)
+    _, msg = file_controller.encrypt(encryptor, inp, out)
     print(msg)
 
 def handle_decrypt(decryptor: Decryptor) -> None:
     inp = input("Enter the file to extract: ").strip()
     out = input("Enter the output file: ").strip()
-    success, msg = file_controller.decrypt(decryptor, inp, out)
+    _, msg = file_controller.decrypt(decryptor, inp, out)
     print(msg)
 
 def ask_password_twice() -> str:

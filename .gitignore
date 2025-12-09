@@ -6,3 +6,6 @@ htmlcov
 build/
 *.spec
 salt.bin
+*.exe
+*.dll
+*.enc

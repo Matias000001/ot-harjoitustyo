@@ -85,3 +85,11 @@ Tiedoston [.pylintrc](./.pylintrc) määrittelemät tarkistukset voi suorittaa k
 ```bash
 poetry run invoke lint
 ```
+
+### Koodin siistiminen autopep8-muotoilulla
+
+Koko projektin voi siistiä automaattisesti komennolla:
+
+```bash
+poetry run invoke format
+```

@@ -16,6 +16,7 @@ def print_menu():
     print("3) Help")
     print("4) Quit")
 
+
 def handle_encrypt(encryptor: Encryptor):
     """Encrypt a file via CLI using the given encryptor.
 
@@ -28,6 +29,7 @@ def handle_encrypt(encryptor: Encryptor):
     _, msg = file_controller.encrypt(encryptor, inp, out)
     print(msg)
 
+
 def handle_decrypt(decryptor: Decryptor):
     """Decrypt a file using the CLI interface.
 
@@ -38,6 +40,7 @@ def handle_decrypt(decryptor: Decryptor):
     out = input("Enter the output file: ").strip()
     _, msg = file_controller.decrypt(decryptor, inp, out)
     print(msg)
+
 
 def ask_password_twice():
     """Ask the user for a password twice and return it.
@@ -55,6 +58,7 @@ def ask_password_twice():
             print("Error: passwords do not match. Try again.\n")
             continue
         return pw1
+
 
 def main():
     """Run the CipherVault CLI application."""
@@ -76,6 +80,7 @@ def main():
             break
         else:
             print("Unknown choice.")
+
 
 if __name__ == "__main__":
     main()

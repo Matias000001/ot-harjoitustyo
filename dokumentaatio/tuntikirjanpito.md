@@ -1,6 +1,6 @@
 # Työaikakirjanpito
 
-Käytettyjen tuntien summa: 60
+Käytettyjen tuntien summa: 70
 
 | päivä | aika | mitä tein  |
 | :----:|:-----| :-----|
@@ -16,3 +16,4 @@ Käytettyjen tuntien summa: 60
 | 30.11 | 6 | GUI-näppäinohjauksen parantaminen (Tab/Enter), salaustestien ja kattavuuden (>40 %) laajennus, salt/binäärien ignoret ja PyInstaller-binaari
 | 1.12 | 2 | sekvenssikaavio ja dokumentaation päivitys
 | 8.12 | 4 | sovelluslogiikan eriyttelyä ja käyttöliittymälogiikkaa eri moduuleihin
+| 9.12 | 2 | kysymys ennen tiedostojen poistoa, lisätty autopep8-muotoilu, lisättiin docstring-dokumentointi, lisätty testejä

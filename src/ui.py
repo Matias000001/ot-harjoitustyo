@@ -7,6 +7,7 @@ from controllers.file_controller import FileController
 
 # inspired by AI
 
+
 class UI:
     def __init__(self, root):
         self.root = root
@@ -32,8 +33,18 @@ class UI:
         ttk.Label(self._current_frame, text="CipherVault - set password").grid(
             row=0, column=0, columnspan=2, pady=(0, 10)
         )
-        ttk.Label(self._current_frame, text="Password:").grid(row=1, column=0, sticky="e")
-        ttk.Label(self._current_frame, text="Repeat password:").grid(row=2, column=0, sticky="e")
+        ttk.Label(
+            self._current_frame,
+            text="Password:").grid(
+            row=1,
+            column=0,
+            sticky="e")
+        ttk.Label(
+            self._current_frame,
+            text="Repeat password:").grid(
+            row=2,
+            column=0,
+            sticky="e")
         self._pw1_var = ttk.Entry(self._current_frame, show="*")
         self._pw2_var = ttk.Entry(self._current_frame, show="*")
         self._pw1_var.grid(row=1, column=1, pady=2, sticky="we")
@@ -46,13 +57,15 @@ class UI:
             takefocus=True,
         )
         continue_button.grid(row=3, column=0, columnspan=2, pady=10)
-        continue_button.bind("<Return>", lambda event: self._handle_password_ok())
+        continue_button.bind("<Return>",
+                             lambda event: self._handle_password_ok())
         self._pw1_var.focus_set()
 
     def _handle_password_ok(self):
         pw1 = self._pw1_var.get()
         pw2 = self._pw2_var.get()
-        encryptor, decryptor, error = self.password_controller.validate_and_create_engines(pw1, pw2)
+        encryptor, decryptor, error = self.password_controller.validate_and_create_engines(
+            pw1, pw2)
         if error:
             messagebox.showerror("Error", error)
             return

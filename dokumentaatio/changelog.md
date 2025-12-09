@@ -36,3 +36,11 @@ riippuvuudet
 ## Viikko 6
 
 - Eriytetty selkeämmin sovelluslogiikkaa ja käyttöliittymälogiikkaa eri moduuleihin.
+- Kysymys ennen tiedostojen poistoa
+- Lisättiin testejä (coverage 71%)
+- Lisättiin autopep8-muotoilu invoke-tehtäväksi ja päivitettiin, changelog.md, README.md, tuntikirjanpito.md, tasks.py
+- Aloitettu ohjeiden mukaisesti docstring-dokumentointi
+- tehtiin vertaisarviointi
+- arkkitehtuurikuvaus ja kaavio päivitetty vastaamaan tätä hetkeä
+- käyttöohje lisätty
+- testiraportista kuva lisätty

@@ -51,3 +51,4 @@ Perusversion jälkeen järjestelmää voidaan laajentaa esim. seuraavilla ominai
 - Tiedostojen tuhoaminen turvallisesti (secure delete)
 - GUI -tehty-
 - Sovelluksessa liikkuminen Tab ja Enter nappien avulla -Tehty-
+- Kysymys ennen tiedostojen poistoa -Tehty-

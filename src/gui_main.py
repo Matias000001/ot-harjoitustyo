@@ -3,6 +3,7 @@ from ui import UI
 
 
 def main():
+    """Start the CipherVault graphical user interface."""
     window = Tk()
     window.title("CipherVault")
     window.geometry("800x550")
@@ -10,6 +11,7 @@ def main():
     ui = UI(window)
     ui.start()
     window.mainloop()
+
 
 if __name__ == "__main__":
     main()

@@ -1,1 +1,1 @@
-tulossa
+![Testiraportti viikko6](testiraportti_viikko6.png)

@@ -2,10 +2,26 @@ from cryptography.fernet import Fernet
 
 
 class Encryptor:
+    """Handles file encryption using a Fernet key."""
+
     def __init__(self, key: bytes):
+        """Initialize the encryptor.
+
+        Args:
+            key (bytes): Fernet-compatible encryption key.
+        """
         self.fernet = Fernet(key)
 
     def encrypt_file(self, input_path: str, output_path: str) -> bool:
+        """Encrypt a file and save the encrypted output.
+
+        Args:
+            input_path (str): Path to the file to encrypt.
+            output_path (str): Path where the encrypted file will be saved.
+
+        Returns:
+            bool: True if encryption succeeds, otherwise False.
+        """
         try:
             with open(input_path, "rb") as infile:
                 data = infile.read()

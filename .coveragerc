@@ -1,9 +1,12 @@
 [run]
+
 source = src
+
 omit =
     src/**/__init__.py
     src/tests/**
     src/ui.py
-    src/index.py
     src/gui_main.py
+    src/cli_main.py
     src/introduction.py
+    src/controllers/**

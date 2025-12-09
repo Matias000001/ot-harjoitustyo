@@ -1,6 +1,5 @@
-import os
 import unittest
-
+import os
 from encryption.key_manager import get_key_from_password
 from encryption.encryptor import Encryptor
 from encryption.decryptor import Decryptor
@@ -26,5 +25,24 @@ class TestEncryption(unittest.TestCase):
         self.assertEqual(decrypted, original_data)
 
     def test_decrypt_file_missing_input_returns_false(self):
-        ok = self.decryptor.decrypt_file("tama_on_testi_data_file.enc", "tama_on_toinen_testi_data_file.txt")
+        ok = self.decryptor.decrypt_file(
+            "tama_on_testi_data_file.enc",
+            "tama_on_toinen_testi_data_file.txt")
         self.assertFalse(ok)
+
+    def test_encrypt_file_missing_input_returns_false(self):
+        ok = self.encryptor.encrypt_file("ei_ole_tiedostoa.txt", "ulos.enc")
+        self.assertFalse(ok)
+
+    def test_encrypt_and_decrypt_file_roundtrip(self):
+        with open("testi_file.txt", "wb") as f:
+            f.write(b"abc123")
+        enc_ok = self.encryptor.encrypt_file(
+            "testi_file.txt", "testi_file.enc")
+        self.assertTrue(enc_ok)
+        dec_ok = self.decryptor.decrypt_file(
+            "testi_file.enc", "testi_file.txt")
+        self.assertTrue(dec_ok)
+        with open("testi_file.txt", "rb") as f:
+            self.assertEqual(f.read(), b"abc123")
+        os.remove("testi_file.txt")

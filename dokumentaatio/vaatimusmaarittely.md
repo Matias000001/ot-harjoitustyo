@@ -26,7 +26,7 @@ Näkymään aukeaa valikko, joiden takaa löytyy salasanan asettamisen jälkeen 
 
 ### Käynnistyksen jälkeen
 - Käyttäjä antaa salasanan kaksi kertaa -"tehty"-
-- Käyttäjä näkee valikon (Salaa tiedosto / Pura tiedosto / Ohjeet / Lopeta). -"tehty"-
+- Käyttäjä näkee valikon (Encrypt file / Extract file / Help / Quit). -"tehty"-
 
 ### Kryptaus
 - Ohjelma:
@@ -35,20 +35,19 @@ Näkymään aukeaa valikko, joiden takaa löytyy salasanan asettamisen jälkeen 
 - Salaa sisällön -"tehty"-
 - Tallentaa uuden kryptatun tiedoston käyttäjän antamalla nimellä haluaansa sijaintiin -"tehty"-
 - Ohjelma ilmoittaa onnistumisesta tai virheestä (esim. tiedostoa ei löydy). -"tehty"-
-- Onnistuessaan poistaa salaamattoman tiedoston. -"tehty"-
+- Onnistuessaan poistaa salaamattoman tiedoston ja pyytää käyttäjältä varmistusta ennen poistoa. -"tehty"-
 
 ### Dekryptaus
 - Lukee tiedoston -"tehty"-
 - Johdattaa avaimen annetusta salasanasta -"tehty"-
 - Purkaa sisällön -"tehty"-
 - Jos purku onnistuu, tallentaa alkuperäisen tiedoston käyttäjän antamalla nimellä haluaamaansa sijaintiin -"tehty"-
-- Onnistuessaan poistaa salatun tiedoston -"tehty"-
+- Onnistuessaan poistaa salatun tiedoston ja pyytää käyttäjältä varmistusta ennen poistoa. -"tehty"-
 
 ## Jatkokehitysideoita
 
 Perusversion jälkeen järjestelmää voidaan laajentaa esim. seuraavilla ominaisuuksilla:
 - Useiden tiedostojen yhtäaikainen salaus (kansio-käsittely)
 - Tiedostojen tuhoaminen turvallisesti (secure delete)
-- GUI -tehty-
 - Sovelluksessa liikkuminen Tab ja Enter nappien avulla -Tehty-
 - Kysymys ennen tiedostojen poistoa -Tehty-

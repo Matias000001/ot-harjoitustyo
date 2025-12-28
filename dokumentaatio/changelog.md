@@ -44,3 +44,10 @@ riippuvuudet
 - arkkitehtuurikuvaus ja kaavio päivitetty vastaamaan tätä hetkeä
 - käyttöohje lisätty
 - testiraportista kuva lisätty
+
+## Viikko 7
+
+- Salasanan minimi ja maksimi pituudet
+- Ohjelman tarkastus
+- Kurssin vaatimusmäärittelyiden tarkistus
+- Pyritty varmistumaan, että ohjelma täyttää kurssin kaikki vaatimukset täysiin pisteisiin

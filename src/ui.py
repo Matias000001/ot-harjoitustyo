@@ -57,8 +57,7 @@ class UI:
             takefocus=True,
         )
         continue_button.grid(row=3, column=0, columnspan=2, pady=10)
-        continue_button.bind("<Return>",
-                             lambda event: self._handle_password_ok())
+        continue_button.bind("<Return>",lambda event: self._handle_password_ok())
         self._pw1_var.focus_set()
 
     def _handle_password_ok(self):

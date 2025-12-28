@@ -17,3 +17,4 @@ Käytettyjen tuntien summa: 70
 | 1.12 | 2 | sekvenssikaavio ja dokumentaation päivitys
 | 8.12 | 4 | sovelluslogiikan eriyttelyä ja käyttöliittymälogiikkaa eri moduuleihin
 | 9.12 | 2 | kysymys ennen tiedostojen poistoa, lisätty autopep8-muotoilu, lisättiin docstring-dokumentointi, lisätty testejä
+| 28.12 | 8 | Salasanan minimi ja maksimi pituudet, ohjelman tarkastus, kurssin vaatimusmäärittelyiden tarkistus.
